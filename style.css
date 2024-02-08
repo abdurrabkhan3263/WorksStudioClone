@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'freight big pro';
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0 50px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+nav svg path {
+    fill: black;
+}
+
+#loader {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 99;
+    display: none;
+}
+
+#loader h1 {
+    font-size: 6.5vw;
+    line-height: 5vw;
+    font-weight: 500;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 9;
+}
+
+#loader .yellow {
+    height: 100%;
+    width: 100%;
+    background-color: #F5E41B;
+    position: absolute;
+
+}
+
+#loader #yellow1 {
+    z-index: 8;
+}
+
+#loader #yellow2 {
+    z-index: 7;
+}
+
+#loader video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 6;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5E41B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#page1 h1 {
+    font-size: 6.5vw;
+    line-height: 5vw;
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+
+.elem{
+    width: 100%;
+    position: relative;
+}
+
+.elem h2{
+    font-size: 6vw;
+    text-transform: uppercase;
+    font-weight: 100;
+    position: relative;
+    z-index: 9;
+    cursor: pointer;
+    line-height: 4.5vw;
+    transition: all 0.1s ease;
+}
+
+.elem .moving{
+    background-color: #F5E41B;
+    width: 100%;
+    white-space: nowrap;
+    padding: 5px 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%) scaleY(0%);
+    opacity: 0;
+    transition: all 0.5s ease-out;
+    overflow: hidden;
+}
+
+.yellow-blur{
+    height: 100%;
+    width: 35%;
+    background:linear-gradient(to right , #f5e31be5 ,#F5E41B ,#F5E41B , #f5e31be5);
+    box-shadow: 10px 0px 20px 20px #F5E41B , 10px 0px 20px 20px #F5E41B;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50% , -50%);
+    z-index: 8;
+}
+
+.elem:hover .moving{
+    opacity: 1;
+    transform: translateY(-40%) scaleY(100%);
+}
+
+.elem:hover h2{
+    font-style: italic;
+    color: black;
+}
+
+
+.elem .moving .moving-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: moving;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.elem .moving .moving-in h5{
+    color: black;
+    display: inline-block;
+    font-size: 19px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin-right: 30px;
+    font-weight: 500;
+}
+
+@keyframes moving {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+
+#page3 {
+    min-height: 150vh;
+    width: 100%;
+    padding: 30px 40px;
+}
+
+.image-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.img-div{
+    width: 30vw;
+    object-fit: cover;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.img-div img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.img-div .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 2.5vw;
+    opacity: 0;
+    transition: all 0.5s ease 0.05s;
+
+}
+
+.img-div:hover img{
+    scale: 1.05;
+}
+
+.img-div:hover .overlay{
+    opacity: 1;
+}
+
+
+.go-top-container{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.go-top-container i{
+    font-size: 35px;
+}
+
+.go-top-container p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* let line1 = [
+    {
+        img : 'https://works.studio/assets/imager/images/converse-nextstudio/35375/Cover_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/nike-nfl-2022/37789/nike-nfl-cover2_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/Fear-of-God-Nike/38013/fog-1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/john-elliott-nepal/37810/john-elliott-nepal-cover_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/CDL-2021-champs/10987/Call-of-Duty-League-Championship-2021-Air-Force-1-01_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/fear-of-god-house-of-god/38170/fog-pop-v1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/nike-air-max-day-21-nyc-identity/38233/amd-v1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/guns-n-roses-pop-up/2544/Guns-N-Roses-Pop-Up-Police-Car-01_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/reshape-identity/2769/Reshape-Identity-Logo-Blue_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+]
+let line2 = [
+    {
+        img : 'https://works.studio/assets/imager/images/futurevvorld/38020/fvv-1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/public/37839/public-cover2_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/nike-studio-45/3184/Nike-Studio-45-Desk_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/converse-basketball-ho19/1766/Converse-Basketball-Identity-Shoe-Photgraphy_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/led-studio/26053/thumbnail_230526_162436_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/the-lion-king-the-gift/8572/Beyonce-Lion-King-The-Gift-Deluxe-Album-Cover_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/converse-basketball-explorations/38446/freetoflow-v1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/peloton/38163/peloton-tread-1.5-b_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/call-of-duty-league-championship-kit/10679/Call-of-Duty-League-Championship-2020-Ring-Thumbnail_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/john-elliott-shows/10017/John-Elliot-Shows-Experiential-Photography-00_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+]
+let line3 = [
+    {
+        img : 'https://works.studio/assets/imager/images/converse/38120/v1.5-converse-bball-3_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/jeen-yuhs/35858/v1.5-home-image2_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/versace-trigerca-identity/38005/versace-1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/the-xi/38084/xi-1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/heron-preston-website/9194/Heron-Preston-Website-Thumbnail_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/reebok/10721/Reebok-Split-From-Packaging-01_WORKS_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/nars-x-susanne-bartsch/38394/nars-1.5_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/dreamhaus/38383/dreamhaus-1.5-b_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+    {
+        img : 'https://works.studio/assets/imager/images/kith-sport-ss18/9940/JACKIELEEPHOTO_090717_INSTITUTE-KITHSPORT-203255_201124_023510_e49f8295ccc5a85e1a76e2d68c06456f.jpg',
+        details : 'Converse NextStudio'
+    },
+]
+
+let line1HTML = '';
+
+line1.forEach(value=>{
+    let img = value.img;
+    let details = value.details;
+    line1HTML += `
+    <div class="img-div">
+    <img src="${img}" alt="">
+    <div class="overlay">
+        <p>${details}</p>
+    </div>
+</div>
+    `
+})
+let line2HTML = '';
+
+line2.forEach(value=>{
+    let img = value.img;
+    let details = value.details;
+    line2HTML += `
+    <div class="img-div">
+    <img src="${img}" alt="">
+    <div class="overlay">
+        <p>${details}</p>
+    </div>
+</div>
+    `
+})
+let line3HTML = '';
+
+line3.forEach(value=>{
+    let img = value.img;
+    let details = value.details;
+    line3HTML += `
+    <div class="img-div">
+    <img src="${img}" alt="">
+    <div class="overlay">
+        <p>${details}</p>
+    </div>
+</div>
+    `
+})
+
+
+let line1Section = document.querySelector('.line1');
+let line2Section = document.querySelector('.line2');
+let line3Section = document.querySelector('.line3');
+
+line1Section.innerHTML =line1HTML;
+line2Section.innerHTML =line2HTML;
+line3Section.innerHTML =line3HTML; */
