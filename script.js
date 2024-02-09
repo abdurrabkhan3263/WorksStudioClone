@@ -53,12 +53,29 @@ element.forEach(value => {
 const goTop = document.querySelector('.go-top-container');
 
 goTop.addEventListener('click', () => {
-    scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
+    scroll.scrollTo(0)
 });
 
+
+// .about {
+// }
+// .studies {
+// }
+
+let plusBtn = document.querySelector('.plus-btn');
+let about = document.querySelector(".about");
+let studies = document.querySelector('.studies');
+let project = document.querySelector('.project');
+
+
+plusBtn.addEventListener('click' , ()=>{
+    about.classList.toggle('nav-li-sec');
+    studies.classList.toggle('nav-li-sec');
+    about.classList.toggle('nav-btn-click');
+    studies.classList.toggle('nav-btn-click');
+    project.classList.toggle('nav-li-sec2')
+    project.classList.toggle("nav-pro-click")
+})
 
 
 
